@@ -3,6 +3,7 @@ package chess.pieces;
 import chess.Position;
 import chess.board.ChessBoard;
 import chess.board.PieceData;
+import chess.moves.CaptureMove;
 import chess.moves.Move;
 import chess.moves.MoveMove;
 
@@ -21,11 +22,27 @@ public class PawnType extends PieceType {
             moves.add(new MoveMove(data.getPos(), forward));
         }
 
-        Position left = data.getPos().add(data.getParty().getForward()).add(new Position(-1, 0));
+        addCaptureMove(data, moves, new Position(-1, 0));
+        addCaptureMove(data, moves, new Position(1, 0));
 
-        Position right = data.getPos().add(data.getParty().getForward()).add(new Position(1, 0));
+        if (!data.hasMoved()) {
+            Position check = data.getPos().add(data.getParty().getForward());
+            if (board.isEmpty(check)) {
+                check = check.add(data.getParty().getForward());
+                if (board.isEmpty(check)) {
+                    moves.add(new MoveMove(data.getPos(), check));
+                }
+            }
+        }
 
         return moves;
+    }
+
+    private void addCaptureMove(PieceData data, List<Move> moves, Position direction) {
+        Position capture = data.getPos().add(data.getParty().getForward()).add(direction);
+        if (data.getBoard().isCapturable(capture, data.getParty())) {
+            moves.add(new CaptureMove(data.getPos(), capture));
+        }
     }
 
     @Override

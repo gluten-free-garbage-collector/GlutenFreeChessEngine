@@ -24,4 +24,36 @@ public class PieceData {
         this.hasMovedLastTurn = false;
     }
 
+    public boolean isHasMoved() {
+        return hasMoved;
+    }
+
+    public boolean isHasMovedLastTurn() {
+        return hasMovedLastTurn;
+    }
+
+    public Position getPos() {
+        return pos;
+    }
+
+    public PieceType getType() {
+        return type;
+    }
+
+    public Party getParty() {
+        return party;
+    }
+
+    public void setPos(Position pos) {
+        this.pos = pos;
+    }
+
+    public void setHasMoved(boolean hasMoved) {
+        this.hasMoved = hasMoved;
+    }
+
+    public void setHasMovedLastTurn(boolean hasMovedLastTurn) {
+        this.hasMovedLastTurn = hasMovedLastTurn;
+    }
+
 }

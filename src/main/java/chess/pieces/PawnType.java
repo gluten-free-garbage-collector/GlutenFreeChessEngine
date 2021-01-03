@@ -6,16 +6,17 @@ import chess.board.PieceData;
 import chess.moves.CaptureMove;
 import chess.moves.Move;
 import chess.moves.MoveMove;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class PawnType extends PieceType {
+
     PawnType() {
     }
 
     @Override
-    public List<Move> generatePossibleMoves(PieceData data, ChessBoard board) {
+    public List<Move> generatePossibleMoves(PieceData data) {
+        ChessBoard board = data.getBoard();
         List<Move> moves = new ArrayList<>();
         Position forward = data.getPos().add(data.getParty().getForward());
         if (board.isEmpty(forward)) {

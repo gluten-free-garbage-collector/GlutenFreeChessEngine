@@ -14,5 +14,5 @@ public abstract class PieceType {
     public static QueenType QUEEN = new QueenType();
     public static KnightType KING = new KnightType();
 
-    public abstract List<Move> generatePossibleMoves(PieceData data, ChessBoard board);
+    public abstract List<Move> generatePossibleMoves(PieceData data);
 }

@@ -11,7 +11,7 @@ public class QueenType extends PieceType {
     }
 
     @Override
-    public List<Move> generatePossibleMoves(PieceData data, ChessBoard board) {
+    public List<Move> generatePossibleMoves(PieceData data) {
         return null;
     }
 

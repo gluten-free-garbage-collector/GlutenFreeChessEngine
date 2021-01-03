@@ -32,5 +32,4 @@ public abstract class PieceType {
     public boolean isEnPassantable() {
         return false;
     }
-    public boolean
 }

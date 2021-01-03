@@ -55,5 +55,4 @@ public class PieceData {
     public void setHasMovedLastTurn(boolean hasMovedLastTurn) {
         this.hasMovedLastTurn = hasMovedLastTurn;
     }
-
 }

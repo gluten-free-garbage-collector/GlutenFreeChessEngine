@@ -5,7 +5,9 @@ import chess.Position;
 import chess.board.ChessBoard;
 import chess.board.PieceData;
 import chess.moves.Move;
+import chess.moves.MoveMove;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PawnType extends PieceType{
@@ -15,6 +17,6 @@ public class PawnType extends PieceType{
 
     @Override
     public List<Move> generatePossibleMoves(PieceData data, ChessBoard board) {
-        return null;
+        List<Move> moves = new ArrayList<>();
     }
 }

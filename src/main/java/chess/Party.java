@@ -11,4 +11,12 @@ public class Party {
         this.name = name;
         this.forward = forward;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public Position getForward() {
+        return forward;
+    }
 }

@@ -1,5 +1,6 @@
 package chess.board;
 
+import chess.Party;
 import chess.Position;
 
 public class ChessBoard {
@@ -30,7 +31,7 @@ public class ChessBoard {
     /**
      * Maps a position to a piece.
      *
-     * @param pos where to put the piece
+     * @param pos   where to put the piece
      * @param piece which piece to put there
      */
     private void setPiece(Position pos, PieceData piece) {
@@ -44,7 +45,7 @@ public class ChessBoard {
      * within PieceData. Use PieceData's method everywhere else.
      *
      * @param piece the piece at it's new position
-     * @param from from wherewhere
+     * @param from  from wherewhere
      * @return the piece that was moved
      * @deprecated i think we won't need this
      */
@@ -69,6 +70,30 @@ public class ChessBoard {
      */
     void removePiece(PieceData piece) {
         setPiece(piece.getPos(), null);
+    }
+
+    /**
+     * Determines whether a given Position is occupied.
+     *
+     * @param position the position to check
+     * @return true if there is a Piece at the Position
+     */
+    public boolean isEmpty(Position position) {
+        return this.board[position.getA()][position.getB()] == null;
+    }
+
+    /**
+     * Determines whether a player can capture a piece at a given Position.
+     *
+     * @param position the position to check
+     * @param by       the party of the capturing player
+     * @return true if there is a Piece at position and it is not if the given party
+     */
+    public boolean isCapturable(Position position, Party by) {
+        if (isEmpty(position)) {
+            return false;
+        }
+        return this.board[position.getA()][position.getB()].getParty() != by;
     }
 
 }

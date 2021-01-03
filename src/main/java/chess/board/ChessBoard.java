@@ -1,21 +1,15 @@
 package chess.board;
 
 import chess.Position;
-import chess.exception.ChessException;
 import chess.pieces.PieceType;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 
 public class ChessBoard {
 
     public static final int BOARD_SIZE = 8;
-    private final PieceType[][] board;
-    private Map<PieceType, Set<Position>> piecePositions;
+    private final PieceData[][] board;
 
     public ChessBoard() {
-        board = new PieceType[BOARD_SIZE][BOARD_SIZE];
-        piecePositions = new HashMap<>();
+        board = new PieceData[BOARD_SIZE][BOARD_SIZE];
     }
 
     public PieceType getPiece(Position pos) {
@@ -27,6 +21,21 @@ public class ChessBoard {
 
     }
 
+    /**
+     * Moves a Piece.
+     *
+     * @param from from where
+     * @param to to where
+     * @return the piece that was moved
+     */
+    PieceData movePiece(Position from, Position to) {
+        if (getPiece(to) != null) {
+            throw new ChessException(String.format("Tried to add piece to occupied field: %s", pos.toString()));
+        }
+        PieceData piece = getPiece(from);
+    }
+
+    /*
     public void addPiece(Position pos, PieceType piece) {
         if (getPiece(pos) != null) {
             throw new ChessException(String.format("Tried to add piece to occupied field: %s", pos.toString()));
@@ -51,5 +60,5 @@ public class ChessBoard {
         addPiece(after, piece);
         return piece;
     }
-
+     */
 }

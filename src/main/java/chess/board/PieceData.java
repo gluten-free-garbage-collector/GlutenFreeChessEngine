@@ -15,20 +15,35 @@ public class PieceData {
     private Position pos; //position of this piece
     private final PieceType type; //what type this piece is
     private final Party party; //what party this piece belongs to
+    private final ChessBoard board; //the board this piece is on
 
-    public PieceData(Position pos, PieceType type, Party party) {
+    public PieceData(Position pos, PieceType type, Party party, ChessBoard board) {
         this.pos = pos;
         this.type = type;
         this.party = party;
+        this.board = board;
         this.hasMoved = false;
         this.hasMovedLastTurn = false;
+        board.addPiece(this);
     }
 
-    public boolean isHasMoved() {
+    public void move(Position pos) {
+        board.removePiece(this);
+        this.pos = pos;
+        board.addPiece(this);
+
+    }
+
+    public void capture() {
+        board.removePiece(this);
+        pos = null;
+    }
+
+    public boolean hasMoved() {
         return hasMoved;
     }
 
-    public boolean isHasMovedLastTurn() {
+    public boolean hasMovedLastTurn() {
         return hasMovedLastTurn;
     }
 
@@ -44,6 +59,10 @@ public class PieceData {
         return party;
     }
 
+    public ChessBoard getBoard() {
+        return board;
+    }
+
     public void setPos(Position pos) {
         this.pos = pos;
     }
@@ -56,4 +75,8 @@ public class PieceData {
         this.hasMovedLastTurn = hasMovedLastTurn;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s %s at %s", party, type, pos);
+    }
 }

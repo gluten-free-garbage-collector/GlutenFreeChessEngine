@@ -1,5 +1,6 @@
-package chess;
+package chess.board;
 
+import chess.Position;
 import chess.exception.ChessException;
 import chess.pieces.PieceType;
 import java.util.HashMap;

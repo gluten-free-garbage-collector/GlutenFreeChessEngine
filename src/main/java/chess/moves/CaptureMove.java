@@ -1,6 +1,6 @@
 package chess.moves;
 
-import chess.ChessBoard;
+import chess.board.ChessBoard;
 import chess.Position;
 
 public class CaptureMove extends Move {

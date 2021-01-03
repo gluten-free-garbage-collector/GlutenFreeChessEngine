@@ -1,5 +1,6 @@
 package chess;
 
+import chess.board.ChessBoard;
 import chess.exception.ChessException;
 
 public final class Position {

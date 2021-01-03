@@ -34,7 +34,7 @@ public class PieceData {
 
     }
 
-    public void capture() {
+    public void remove() {
         board.removePiece(this);
         pos = null;
     }

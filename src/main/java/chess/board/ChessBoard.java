@@ -83,7 +83,7 @@ public class ChessBoard {
     }
 
     /**
-     * Determines whether a player can capture a piece at a given Position.
+     * Determines whether a player can remove a piece at a given Position.
      *
      * @param position the position to check
      * @param by       the party of the capturing player

@@ -8,7 +8,7 @@ public class ChessBoard {
     private final PieceData[][] board;
 
     public ChessBoard() {
-        board = new PieceData[BOARD_SIZE][BOARD_SIZE];
+        this.board = new PieceData[BOARD_SIZE][BOARD_SIZE];
     }
 
     /**
@@ -20,7 +20,7 @@ public class ChessBoard {
      */
     public PieceData getPiece(Position pos) {
         if (pos != null) {
-            return board[pos.getA()][pos.getB()];
+            return this.board[pos.getA()][pos.getB()];
         } else {
             return null;
         }
@@ -35,7 +35,7 @@ public class ChessBoard {
      */
     private void setPiece(Position pos, PieceData piece) {
         if (pos != null) {
-            board[pos.getA()][pos.getB()] = piece;
+            this.board[pos.getA()][pos.getB()] = piece;
         }
     }
 

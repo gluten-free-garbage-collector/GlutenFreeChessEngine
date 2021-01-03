@@ -17,9 +17,14 @@ public class PawnType extends PieceType {
     public List<Move> generatePossibleMoves(PieceData data, ChessBoard board) {
         List<Move> moves = new ArrayList<>();
         Position forward = data.getPos().add(data.getParty().getForward());
-        if (board.getPiece(forward) == null) {
+        if (board.isEmpty(forward)) {
             moves.add(new MoveMove(data.getPos(), forward));
         }
+
+        Position left = data.getPos().add(data.getParty().getForward()).add(new Position(-1, 0));
+
+        Position right = data.getPos().add(data.getParty().getForward()).add(new Position(1, 0));
+
         return moves;
     }
 
